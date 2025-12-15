@@ -1,11 +1,11 @@
 {
   "kind": "decision",
   "id": "67514c0c6b10f0edcea72f3b",
-  "chamber": "Troisième chambre civile",
+  "chamber": null,
   "formation": null,
   "publication": null,
   "number": null,
-  "ecli": null,
+  "ecli": "ECLI:FR:CCASS:2024:C300662",
   "decision_date": null,
   "solution": null,
   "content": null,

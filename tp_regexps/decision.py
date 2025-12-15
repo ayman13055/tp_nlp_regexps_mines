@@ -87,6 +87,9 @@ class Decision(object):
     @staticmethod
     def __get_ecli(data: str):
         # TODO
+        m = regexps.ecli_re.search(data)
+        if m:
+            return m.group("ecli")
         return None
 
     @staticmethod
@@ -105,7 +108,10 @@ class Decision(object):
 
     @staticmethod
     def __get_publication(data: str):
-        # TODO
+        m = regexps.publication_re.search(data)
+        print("get pub m", m)
+        if m:
+            return m.group("publication")
         return None
 
     @staticmethod
@@ -133,16 +139,24 @@ class Decision(object):
 
     @classmethod
     def from_html(cls, id: str, html: str):
+        # print("HTML length:", len(html_data))
+
         d = cls(id=id)
         header = cls.__get_header(html)
-        #print(header)
+        # print(header)
         d.chamber = cls.__get_chambre(header)
+
         # TODO d.ecli = cls.__get_ecli(header)
-        assert d.chamber is not None
+        d.ecli = cls.__get_ecli(header)
+        # assert d.chamber is not None
         # TODO d.publication = cls.__get_publication(header) or None
+        d.publication = cls.__get_publication(header) or None
+        print("decision.publication", d.publication)
+        print("decision.ecli", d.ecli)
+        print("decision.chamber", d.chamber)
         # TODO d.formation = cls.__get_formation(header) or None
-        #title = cls.__get_title(html)
-        #if title:
+        # title = cls.__get_title(html)
+        # if title:
         #    d.number = title.group("number")
         #    day = int(title.group("day"))
         #    assert day > 0 and day < 31, day
@@ -155,7 +169,7 @@ class Decision(object):
         #        raise NotImplementedError(f"month: {month}")
         #    d.decision_date = datetime.date(year, month, day).isoformat()
         #    pass
-        #else:
+        # else:
         #    print("NO TITLE")
         # TODO: "solution"
         # TODO: "content"

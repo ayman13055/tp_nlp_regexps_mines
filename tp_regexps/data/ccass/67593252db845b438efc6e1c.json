@@ -1,11 +1,11 @@
 {
   "kind": "decision",
   "id": "67593252db845b438efc6e1c",
-  "chamber": "Chambre commerciale financière et économique",
+  "chamber": null,
   "formation": null,
   "publication": null,
   "number": null,
-  "ecli": null,
+  "ecli": "ECLI:FR:CCASS:2024:CO00745",
   "decision_date": null,
   "solution": null,
   "content": null,

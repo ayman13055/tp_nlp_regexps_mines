@@ -1,11 +1,11 @@
 {
   "kind": "decision",
   "id": "67514c366b10f0edcea72f7f",
-  "chamber": "Deuxième chambre civile",
+  "chamber": null,
   "formation": null,
   "publication": null,
   "number": null,
-  "ecli": null,
+  "ecli": "ECLI:FR:CCASS:2024:C211048",
   "decision_date": null,
   "solution": null,
   "content": null,

@@ -29,7 +29,9 @@ def main():
     args = parser.parse_args()
 
     if args.operation == "write_test_decisions":
+        
         path = args.param1
+        
         if path is None:
             print("ERROR: missing test decisions path", file=sys.stderr)
             return 1
@@ -42,7 +44,9 @@ def main():
                 html_filename = os.path.join(path, filename)
                 with open(html_filename, "r") as f:
                     html_data = f.read()
+                print (id)
                 html_decision = Decision.from_html(id, html_data)
+                print (html_decision.ecli)
                 json_filename = Path(path) / f"{id}.json"
                 if not os.path.exists(json_filename) or args.force:
                     with open(json_filename, "w") as f:
@@ -81,3 +85,7 @@ def main():
                 html_decision = Decision.from_html(id, html_data)
                 print(html_decision.to_json())
     return 0
+
+if __name__ == "__main__":
+    sys.exit(main())
+
